@@ -5,7 +5,7 @@
 ---
 
 ## 📑 1. 핵심 API 명세서
-> 구현해야 할 필수 기능들을 바탕으로 RESTful하게 설계된 API 명세입니다. 확장성을 고려하여 **API Versioning(/api/v1)**을 적용했습니다.
+> 구현해야 할 필수 기능들을 바탕으로 RESTful하게 설계된 API 명세입니다. 확장성을 고려하여 **API Versioning(/api/)**을 적용했습니다.
 
 ### ☕ 메뉴 관련
 | 기능 분류 | 기능명 | API Path | HTTP Method |

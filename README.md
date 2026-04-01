@@ -58,7 +58,7 @@
 ## 📊 3. ERD (Entity Relationship Diagram)
 > 위 테이블들의 관계를 시각화한 ERD입니다.
 
-<img width="508" height="421" alt="Image" src="https://github.com/user-attachments/assets/934b6306-280c-406b-8946-3b05eb1780b4" />
+<img width="496" height="407" alt="Image" src="https://github.com/user-attachments/assets/d1ceadcf-5238-4810-be9d-72ad5d2cdedf" />
 
 ---
 

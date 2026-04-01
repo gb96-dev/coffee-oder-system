@@ -14,7 +14,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     /**
-     * 포인트 조회
+     * 유저 포인트 조회
      */
     public Long getPoint(Long userId) {
         User user = userRepository.findById(userId)
@@ -26,19 +26,15 @@ public class UserService {
      * 포인트 충전
      */
     @Transactional
-    public void chargePoint(Long userId, Long amount) {
-        User user = userRepository.findByIdWithLock(userId)
+    public Long chargePoint(Long userId, Long amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("충전 금액은 0원보다 커야 합니다.");
+        }
+
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다."));
 
         user.chargePoint(amount);
-    }
-
-    /**
-     * 유저의 현재 포인트 조회
-     */
-    public Long getUserPoint(Long userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다."));
 
         return user.getPoint();
     }

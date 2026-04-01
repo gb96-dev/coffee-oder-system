@@ -15,7 +15,7 @@ public class UserController {
     // 1. 사용자 잔액 조회
     @GetMapping("/balance")
     public ResponseEntity<Long> getBalance(@RequestParam("userId") Long userId) {
-        Long balance = userService.getUserPoint(userId);
+        Long balance = userService.getPoint(userId);
         return ResponseEntity.ok(balance);
     }
 
@@ -25,7 +25,7 @@ public class UserController {
             @RequestParam("userId") Long userId,
             @RequestParam("amount") Long amount) {
 
-        userService.chargePoint(userId, amount);
-        return ResponseEntity.ok("포인트 충전이 완료되었습니다.");
+        Long updatedPoint = userService.chargePoint(userId, amount);
+        return ResponseEntity.ok("포인트 충전이 완료되었습니다. 현재 잔액: " + updatedPoint + "원");
     }
 }

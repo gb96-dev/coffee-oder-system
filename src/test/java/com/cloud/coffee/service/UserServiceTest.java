@@ -1,7 +1,6 @@
 package com.cloud.coffee.service;
 
 import com.cloud.coffee.domain.User;
-import jakarta.persistence.*;
 import com.cloud.coffee.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@Transactional // 테스트 완료 후 DB를 자동으로 롤백해 줍니다.
+@Transactional
 class UserServiceTest {
 
     @Autowired

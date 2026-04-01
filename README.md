@@ -61,7 +61,7 @@
 > - Menu와 OrderItem 또한 1:N 관계로 구성되어 있습니다.
 
 
-<img width="496" height="407" alt="Image" src="https://github.com/user-attachments/assets/d1ceadcf-5238-4810-be9d-72ad5d2cdedf" />
+<img width="545" height="351" alt="Image" src="https://github.com/user-attachments/assets/fff92334-6884-4068-8f29-391eabab59d8" />
 
 ---
 

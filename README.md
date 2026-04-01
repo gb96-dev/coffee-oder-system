@@ -10,19 +10,19 @@
 ### ☕ 메뉴 관련
 | 기능 분류 | 기능명 | API Path | HTTP Method |
 | :--- | :--- | :--- | :--- |
-| Menu | 커피 메뉴 목록 조회 | `/api/v1/menus` | `GET` |
-| Stats | 인기 메뉴 조회 | `/api/v1/menus/popular` | `GET` |
+| Menu | 커피 메뉴 목록 조회 | `/api/menus` | `GET` |
+| Stats | 인기 메뉴 조회 | `/api/menus/popular` | `GET` |
 
 ### 👤 유저 & 포인트 관련
 | 기능 분류 | 기능명 | API Path | HTTP Method |
 | :--- | :--- | :--- | :--- |
-| User | 포인트 잔액 조회 | `/api/v1/users/{userId}/point` | `GET` |
-| User | 포인트 충전 | `/api/v1/users/{userId}/point` | `PATCH` |
+| User | 포인트 잔액 조회 | `/api/users/{userId}/point` | `GET` |
+| User | 포인트 충전 | `/api/users/{userId}/point` | `PATCH` |
 
 ### 🛍️ 주문 & 결제 관련
 | 기능 분류 | 기능명 | API Path | HTTP Method |
 | :--- | :--- | :--- | :--- |
-| Order | 커피 주문 및 결제 | `/api/v1/orders` | `POST` |
+| Order | 커피 주문 및 결제 | `/api/orders` | `POST` |
 
 > 📌 **Query Parameter (추가)**
 > * `days` (int): 조회 기간 (기본값: 7)

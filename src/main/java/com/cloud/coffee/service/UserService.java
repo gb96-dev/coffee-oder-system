@@ -32,4 +32,14 @@ public class UserService {
 
         user.chargePoint(amount);
     }
+
+    /**
+     * 유저의 현재 포인트 조회
+     */
+    public Long getUserPoint(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다."));
+
+        return user.getPoint();
+    }
 }

@@ -8,25 +8,21 @@
 > 구현해야 할 필수 기능들을 바탕으로 RESTful하게 설계된 API 명세입니다. 확장성을 고려하여 **API Versioning(/api/v1)**을 적용했습니다.
 
 ### ☕ 메뉴 관련
-| 기능 분류 | 기능명 | API Path | HTTP Method | 담당자 |
-| :--- | :--- | :--- | :--- | :--- |
-| Menu | 커피 메뉴 목록 조회 | `/api/v1/menus` | `GET` | 김규범 |
+| 기능 분류 | 기능명 | API Path | HTTP Method |
+| :--- | :--- | :--- | :--- |
+| Menu | 커피 메뉴 목록 조회 | `/api/v1/menus` | `GET` |
+| Stats | 인기 메뉴 조회 | `/api/v1/menus/popular?days=7` | `GET` |
 
 ### 👤 유저 & 포인트 관련
-| 기능 분류 | 기능명 | API Path | HTTP Method | 담당자 |
-| :--- | :--- | :--- | :--- | :--- |
-| User | 잔액 조회 | `/api/v1/users/{userId}/point` | `GET` | 김규범 |
-| User | 잔액 충전 | `/api/v1/users/{userId}/charge` | `PATCH` | 김규범 |
+| 기능 분류 | 기능명 | API Path | HTTP Method |
+| :--- | :--- | :--- | :--- |
+| User | 포인트 잔액 조회 | `/api/v1/users/{userId}/point` | `GET` |
+| User | 포인트 충전 | `/api/v1/users/{userId}/point` | `PATCH` |
 
 ### 🛍️ 주문 & 결제 관련
-| 기능 분류 | 기능명 | API Path | HTTP Method | 담당자 |
-| :--- | :--- | :--- | :--- | :--- |
-| Order | 커피 주문 및 결제 | `/api/v1/orders` | `POST` | 김규범 |
-
-### 📊 통계 관련
-| 기능 분류 | 기능명 | API Path | HTTP Method | 담당자 |
-| :--- | :--- | :--- | :--- | :--- |
-| Stats | 최근 7일간 인기 메뉴 조회 | `/api/v1/stats/popular-menus` | `GET` | 김규범 |
+| 기능 분류 | 기능명 | API Path | HTTP Method |
+| :--- | :--- | :--- | :--- |
+| Order | 커피 주문 및 결제 | `/api/v1/orders` | `POST` |
 
 ---
 

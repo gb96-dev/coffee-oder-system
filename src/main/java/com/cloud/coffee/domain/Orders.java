@@ -34,4 +34,9 @@ public class Orders {
         this.user = user;
         this.totalPrice = totalPrice;
     }
+
+    public Orders(User user) {
+        this.user = user;
+        this.totalPrice = 0L;
+    }
 }

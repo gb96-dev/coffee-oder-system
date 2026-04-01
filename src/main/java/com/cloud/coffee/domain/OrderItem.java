@@ -1,15 +1,13 @@
 package com.cloud.coffee.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@Table(name = "order_items")
-@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -24,12 +22,14 @@ public class OrderItem {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @Column(nullable = false)
     private Long quantity;
 
-    public OrderItem(Orders order, Menu menu, Long quantity) {
+    private Long orderPrice;
+
+    public OrderItem(Orders order, Menu menu, int quantity, Long price) {
         this.order = order;
         this.menu = menu;
-        this.quantity = quantity;
+        this.quantity = Long.valueOf(quantity);
+        this.orderPrice = price;
     }
 }

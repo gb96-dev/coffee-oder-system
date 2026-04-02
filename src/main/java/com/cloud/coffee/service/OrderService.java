@@ -20,9 +20,8 @@ public class OrderService {
     private final UserRepository userRepository;
     private final MenuRepository menuRepository;
 
-    /**
-     * 커피 주문 및 결제
-     */
+    private final MockDataPlatformSender dataPlatformSender;
+
     @Transactional
     public Long order(Long userId, Long menuId, Long quantity) {
         User user = userRepository.findById(userId)
@@ -47,6 +46,8 @@ public class OrderService {
         order.addOrderItem(orderItem);
 
         Orders savedOrder = orderRepository.save(order);
+
+        dataPlatformSender.sendOrderData(userId, menuId, totalPrice);
 
         return savedOrder.getId();
     }

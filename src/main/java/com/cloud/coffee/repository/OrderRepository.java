@@ -13,10 +13,6 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Orders, Long> {
 
-    /**
-     * 최근 3일간 가장 많이 팔린 상위 3개 메뉴를 조회하는 쿼리
-     * (DTO를 따로 만들지 않고 Object[] 배열 형태로 깔끔하게 꺼내옵니다!)
-     */
     @Query("SELECT oi.menuId, oi.menuName, SUM(oi.quantity) as totalQuantity " +
             "FROM OrderItem oi " +
             "JOIN oi.orders o " +

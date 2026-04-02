@@ -12,15 +12,13 @@ public class UserController {
 
     private final UserService userService;
 
-    // 1. 사용자 잔액 조회
     @GetMapping("/balance")
     public ResponseEntity<Long> getBalance(@RequestParam("userId") Long userId) {
         Long balance = userService.getPoint(userId);
         return ResponseEntity.ok(balance);
     }
 
-    // 2. 사용자 포인트 충전
-    @PostMapping("/charge")
+     @PostMapping("/charge")
     public ResponseEntity<String> chargePoint(
             @RequestParam("userId") Long userId,
             @RequestParam("amount") Long amount) {

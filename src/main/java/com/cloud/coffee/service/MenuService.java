@@ -27,15 +27,12 @@ public class MenuService {
         return menuRepository.findAll();
     }
     public List<TopMenuResponse> getTopMenus() {
-        // 현재 시간 기준으로 정확히 3일 전 시간을 구합니다.
-        LocalDateTime startDate = LocalDateTime.now().minusDays(3);
+        LocalDateTime startDate = LocalDateTime.now().minusDays(7);
 
-        // 상위 3개만 끊어오기 위해 PageRequest를 사용합니다.
-        org.springframework.data.domain.Pageable limitThree = org.springframework.data.domain.PageRequest.of(0, 3);
+                org.springframework.data.domain.Pageable limitThree = org.springframework.data.domain.PageRequest.of(0, 3);
 
         List<Object[]> results = orderRepository.findTopMenus(startDate, limitThree);
 
-        // Object[] 배열로 나온 결과를 보기 좋게 DTO 리스트로 변환합니다.
         return results.stream()
                 .map(result -> new TopMenuResponse(
                         (Long) result[0],       // menuId

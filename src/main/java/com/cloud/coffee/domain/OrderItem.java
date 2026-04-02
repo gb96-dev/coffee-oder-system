@@ -1,15 +1,13 @@
 package com.cloud.coffee.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@Table(name = "order_items")
-@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -18,18 +16,24 @@ public class OrderItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    private Orders order;
+    private Orders orders;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "menu_id")
-    private Menu menu;
+    private Long menuId;
 
-    @Column(nullable = false)
+    private String menuName;
+
+    private Long orderPrice;
+
     private Long quantity;
 
-    public OrderItem(Orders order, Menu menu, Long quantity) {
-        this.order = order;
-        this.menu = menu;
+    public OrderItem(Long menuId, String menuName, Long orderPrice, Long quantity) {
+        this.menuId = menuId;
+        this.menuName = menuName;
+        this.orderPrice = orderPrice;
         this.quantity = quantity;
+    }
+
+    public void setOrders(Orders orders) {
+        this.orders = orders;
     }
 }

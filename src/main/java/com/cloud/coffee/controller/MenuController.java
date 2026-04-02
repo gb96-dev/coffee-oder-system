@@ -1,6 +1,7 @@
 package com.cloud.coffee.controller;
 
 import com.cloud.coffee.domain.Menu;
+import com.cloud.coffee.dto.TopMenuResponse;
 import com.cloud.coffee.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,5 +22,11 @@ public class MenuController {
     public ResponseEntity<List<Menu>> getAllMenus() {
         List<Menu> menus = menuService.getAllMenus();
         return ResponseEntity.ok(menus);
+    }
+
+    @GetMapping("/popular")
+    public ResponseEntity<List<TopMenuResponse>> getPopularMenus() {
+        List<TopMenuResponse> popularMenus = menuService.getTopMenus();
+        return ResponseEntity.ok(popularMenus);
     }
 }
